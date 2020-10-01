@@ -1,0 +1,8 @@
+@import "../../style-helpers/variables.scss";
+
+.logo {
+  cursor: pointer;
+  padding: 0.5em;
+  background-color: $base-color;
+  border-radius: 3px;
+}

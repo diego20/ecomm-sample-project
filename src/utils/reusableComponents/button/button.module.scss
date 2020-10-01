@@ -1,0 +1,27 @@
+@import '../../../style-helpers/variables.scss';
+
+
+.btn {
+  border-radius: 3px;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0.5em;
+  
+  &:hover{
+    background-color: $dark-base-color;
+  }
+}
+
+
+.btn-info {
+  background-color: $base-color;
+}
+
+.btn-danger {
+  background-color: $red-color;
+}
+
+.btn-success {
+  background-color: $green-color;
+}

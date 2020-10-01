@@ -1,0 +1,28 @@
+@import "../../style-helpers/variables.scss";
+
+.circled-number {
+  background-color: $base-color;
+  padding: 3px;
+  border-radius: 50%;
+  color: $white;
+  text-align: center;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+}
+
+.limit-height {
+  overflow-y: scroll;
+  max-height: 300px;
+}
+
+.image-max-height {
+  max-height: 100px;
+}
+
+.price-tag {
+  font-weight: bold;
+  display: inline;
+}
+

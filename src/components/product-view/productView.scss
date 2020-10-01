@@ -1,0 +1,27 @@
+@import "../../style-helpers/variables.scss";
+
+.large-image-box {
+  padding: 0.5em;
+  box-sizing: border-box;
+}
+
+.item-count {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: $base-color;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+.large-image-element {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+}

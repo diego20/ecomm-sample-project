@@ -1,0 +1,39 @@
+@import "../../style-helpers/variables.scss";
+
+.image-box {
+  border: 1px solid black;
+  box-sizing: border-box;
+  min-width: 80px;
+  padding: 0.5em;
+  position: relative;
+  &:hover {
+    border-color: $base-color;
+    box-shadow: 1px 2px 10px 0px rgba(176, 26, 192, 0.75);
+    transition: box-shadow linear 0.2s;
+  }
+  &.selected {
+    border-color: $base-color;
+  }
+}
+
+.item-count {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: $base-color;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+.image-element {
+  max-width: 64px;
+  height: 64px;
+  display: block;
+  margin: auto;
+}

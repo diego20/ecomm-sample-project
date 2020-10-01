@@ -1,0 +1,16 @@
+@import '../../../style-helpers/variables.scss';
+
+.btn {
+  border: none;
+  font-weight: bold;
+  width: 2em;
+}
+
+.btn-dark {
+  background-color: $light-gray;
+}
+
+.btn-light {
+  background-color: $base-color;
+  color: $white;
+}

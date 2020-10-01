@@ -1,0 +1,78 @@
+@import './variables.scss';
+@import '~simplegrid';
+
+h1, h2, h3, h4, h5, h6, p {
+  color: $base-color;
+}
+
+p {
+  font-size: 16px;
+  font-weight: normal;
+  &.paragraph {
+    font-size: 12px;
+    line-height: normal;
+  }
+  &.dark-gray {
+    color: $dark-gray;
+  }
+}
+
+hr {
+  border-top: 1px solid $base-color;
+}
+
+.display-block {
+  display: block;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-content-sb {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.align-items-bottom {
+  align-items: baseline;
+}
+
+.mt-1 {
+  margin-top: 0.5rem;
+}
+
+.ml-1 {
+  margin-left: 0.5rem;
+}
+
+.ml-2 {
+  margin-left: 1rem;
+}
+
+.no-margins {
+  margin: 0;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.small-font {
+  font-size: 14px;
+}
+
+.inline {
+ display: inline; 
+}
+
+.font-white {
+  color: white;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
