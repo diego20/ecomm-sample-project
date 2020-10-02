@@ -12,8 +12,11 @@
     outline: none;
   }
   &.active {
-    background-color: $light-base-color;
     border: 1px solid $base-color;
+    background-color: $light-base-color;
+    &:hover {
+      background-color: $light-base-color-2;
+    }
   }
 }
 
@@ -23,7 +26,7 @@
 }
 
 .price-span {
-  transition: padding 0.2s ease, transform .5s ease;;
+  transition: padding 0.2s ease, transform .5s ease;
 }
 
 .font-white {
@@ -37,7 +40,7 @@
 .btn-info {
   background-color: $base-color;
   &:hover {
-    background-color: $base-color;
+    background-color: $dark-base-color;
   }
 }
 
