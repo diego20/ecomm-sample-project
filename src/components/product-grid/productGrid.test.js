@@ -100,7 +100,6 @@ describe("Tests for the product grid component", () => {
 
     wrapper.find(".image-box").first().simulate("click");
     const actions = store.getActions();
-    console.log("acciones", actions);
     expect(actions[0].type).toEqual(SET_ITEM_ID_IN_PREVIEW);
     expect(actions[1].type).toEqual(SET_CHECKOUT);
   });
