@@ -12,6 +12,13 @@ const ProductGrid = ({
   setItemInPreview,
   setCheckoutView
 }) => {
+
+  /**
+   * If id is found in itemsInShoppingCart array, should return the item quantity.
+   * If id found in isInPreview, should return 0.
+   * If id has not been found yet, return null.
+   * @param {number} id Id of the item
+   */
   const getItemQuantity = (id) => {
     const itemInShoppingCart = itemsInShoppingCart.find(
       (elem) => elem.itemId === id

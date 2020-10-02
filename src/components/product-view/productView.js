@@ -1,7 +1,7 @@
 import React from "react";
 import "./productView.scss";
 import { connect } from "react-redux";
-import { PRODUCT } from "../../constants/constants";
+import { CHOOSE_PRODUCT, PRODUCT } from "../../constants/constants";
 import currencyFormatter from "../../utils/currencyFormatter";
 import PlusMinusWidget from "../../utils/reusableComponents/plus-minus-widget/plusMinusWidget";
 import {
@@ -47,7 +47,7 @@ const ProductView = ({
             </div>
             <div className="row">
               <div className="col-12 flex justify-content-sb align-items-bottom">
-                <p className="no-margin-bottom">
+                <p id="item-price" className="no-margin-bottom">
                   {itemInPreview.name} &#8226;{" "}
                   {currencyFormatter(itemInPreview.price)}
                 </p>
@@ -68,7 +68,7 @@ const ProductView = ({
           </>
         ) : (
           <p className="paragraph dark-gray">
-            Please choose a product on the left
+            {CHOOSE_PRODUCT}
           </p>
         )}
       </div>

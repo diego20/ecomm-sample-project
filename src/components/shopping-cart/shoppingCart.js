@@ -18,7 +18,7 @@ const ShoppingCart = ({ itemList, shoppingCart }) => {
       "pub_test_STx2lgsc9Kulcp4CljOgME4DE2VOKNOl"
     );
     script.setAttribute("data-currency", "COP");
-    script.setAttribute("data-amount-in-cents", shoppingCart.totalPrice*100);
+    script.setAttribute("data-amount-in-cents", shoppingCart.totalPrice * 100);
     script.setAttribute("data-reference", "4XMPGKWWPKWQ");
     script.setAttribute("data-redirect-url", window.location.href);
     document.getElementById("wompi-widget").appendChild(script);
@@ -39,6 +39,7 @@ const ShoppingCart = ({ itemList, shoppingCart }) => {
                     {item.quantity}
                   </span>
                   <img
+                    id="shopping-image"
                     alt="product-large"
                     src={completeItem.image}
                     className={`ml-2 ${styles["image-max-height"]}`}
@@ -67,7 +68,4 @@ const mapStateToProps = ({ items: { itemList }, shoppingCart }) => ({
   itemList,
   shoppingCart,
 });
-// const actionCreators = {
-//   setItemInPreview,
-// };
 export default connect(mapStateToProps)(ShoppingCart);
