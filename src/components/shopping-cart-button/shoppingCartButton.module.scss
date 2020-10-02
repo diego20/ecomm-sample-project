@@ -1,14 +1,9 @@
-.cross-button {
-  background-color: aqua;
-  display: flex;
-  align-self: stretch;
-  align-items: center;
-  width: 1.5rem;
-  justify-content: center;
-  border-radius: 3px;
-  cursor: pointer;
+@import '../../style-helpers/variables.scss';
+
+.fill-white {
+  fill: $white;
 }
 
-.hidden {
-  display: none;
+.fill-base-color {
+  fill: $base-color;
 }

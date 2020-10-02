@@ -1,0 +1,65 @@
+@import "../../style-helpers/variables.scss";
+
+.btn {
+  border-radius: 3px;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0.5em;
+  position: relative;
+  
+  &:focus {
+    outline: none;
+  }
+  &.active {
+    background-color: $light-base-color;
+    border: 1px solid $base-color;
+  }
+}
+
+.move-effect {
+  padding-right: 36px;
+  transform: scale(1, 1);
+}
+
+.price-span {
+  transition: padding 0.2s ease, transform .5s ease;;
+}
+
+.font-white {
+  color: $white;
+}
+
+.font-base-color {
+  color: $base-color;
+}
+
+.btn-info {
+  background-color: $base-color;
+  &:hover {
+    background-color: $base-color;
+  }
+}
+
+.span-effect {
+  color: $white;
+  position: absolute;
+  right: -10px;
+  &.active {
+    background-color: $base-color;
+    right: 0px;
+    height: 100%;
+    width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.btn-danger {
+  background-color: $red-color;
+}
+
+.btn-success {
+  background-color: $green-color;
+}

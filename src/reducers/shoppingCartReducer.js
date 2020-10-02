@@ -18,11 +18,7 @@ const shoppingCart = (state = initialState.shoppingCart, action) => {
           shoppingCartArray[index].quantity++;
         } else shoppingCartArray.push(getShoppingCartItem(itemId, 1));
       } else shoppingCartArray.push(getShoppingCartItem(itemId, 1));
-
-      // Add price to total
-      const foundElem = itemList.find((elem) => elem.id === itemId);
-      if (foundElem)
-        totalPrice = Number((totalPrice += foundElem.price).toFixed(2));
+      totalPrice = updateTotalPrice(action.type, itemList, itemId, totalPrice);
       updateLocalStorage(shoppingCartArray, totalPrice);
       return { ...state, itemsInShoppingCart: shoppingCartArray, totalPrice };
     }
@@ -33,20 +29,29 @@ const shoppingCart = (state = initialState.shoppingCart, action) => {
         const index = shoppingCartArray.findIndex(
           (element) => element.itemId === itemId
         );
-        if (index >= 0 && shoppingCartArray[index].quantity > 1)
+        if (index >= 0 && shoppingCartArray[index].quantity > 1) {
           shoppingCartArray[index].quantity--;
-        else if (index >= 0 && shoppingCartArray[index].quantity <= 1)
+          totalPrice = updateTotalPrice(
+            action.type,
+            itemList,
+            itemId,
+            totalPrice
+          );
+        } else if (index >= 0 && shoppingCartArray[index].quantity <= 1) {
           shoppingCartArray.splice(index, 1);
+          totalPrice = updateTotalPrice(
+            action.type,
+            itemList,
+            itemId,
+            totalPrice
+          );
+        }
       }
-      // Remove price from total.
-      const foundElem = itemList.find((elem) => elem.id === itemId);
-      if (foundElem)
-        totalPrice = Number((totalPrice -= foundElem.price).toFixed(2));
-      if (totalPrice < 0) totalPrice = 0;
       updateLocalStorage(shoppingCartArray, totalPrice);
       return { ...state, itemsInShoppingCart: shoppingCartArray, totalPrice };
     }
     case ActionTypes.REMOVE_ALL_SHOPING_CART_ITEMS:
+      updateLocalStorage([], 0);
       return { ...state, itemsInShoppingCart: [], totalPrice: 0 };
     case ActionTypes.LOAD_SHOPPING_CART: {
       const { storedItems, storedPrice } = action.payload;
@@ -54,7 +59,7 @@ const shoppingCart = (state = initialState.shoppingCart, action) => {
         return {
           ...state,
           itemsInShoppingCart: JSON.parse(storedItems),
-          totalPrice: storedPrice,
+          totalPrice: Number(storedPrice),
         };
       } else return state;
     }
@@ -67,6 +72,20 @@ const getShoppingCartItem = (itemId, quantity) => ({
   itemId,
   quantity,
 });
+
+const updateTotalPrice = (actionType, itemList, itemId, totalPrice) => {
+  let outputPrice = 0;
+  const foundElem = itemList.find((elem) => elem.id === itemId);
+  if (foundElem) {
+    if (actionType === ActionTypes.ADD_PRODUCT_ITEM) {
+      outputPrice = Number((totalPrice += foundElem.price).toFixed(2));
+    } else if (actionType === ActionTypes.SUBSTRACT_PRODUCT_ITEM) {
+      outputPrice = Number((totalPrice -= foundElem.price).toFixed(2));
+    }
+  }
+  if (totalPrice < 0) outputPrice = 0;
+  return outputPrice;
+};
 
 const updateLocalStorage = (shopplingList, totalPrice) => {
   localStorage.setItem("itemsInShoppingCart", JSON.stringify(shopplingList));

@@ -3,7 +3,7 @@ import styles from "./shoppingCartButton.module.scss";
 import { connect } from "react-redux";
 import ShoppingCartIcon from "../../utils/icons/shoppingCartIcon";
 import { setCheckoutView } from "../../actions/checkoutActions";
-import Button from "../../utils/reusableComponents/button/button";
+import Button from "../../utils/button/button";
 import { setItemInPreview } from "../../actions/itemsActions";
 import { removeAllShopingCartItems } from "../../actions/shoppingCartActions";
 import currencyFormatter from "../../utils/currencyFormatter";
@@ -29,18 +29,19 @@ const ShoppingCart = ({
     <div className="flex align-items-center">
       <Button
         buttonType={"info"}
-        icon={<ShoppingCartIcon width={"14px"} fill={"white"} />}
+        isActive={isInCheckout}
+        icon={
+          <ShoppingCartIcon
+            width={"14px"}
+            className={
+              isInCheckout ? styles["fill-base-color"] : styles["fill-white"]
+            }
+          />
+        }
         buttonText={currencyFormatter(totalPrice)}
         clickEvent={() => setShoppingCartView(!isInCheckout)}
+        helperAction={() => removeShoppingCart(!isInCheckout)}
       />
-      <span
-        className={`${styles["cross-button"]} ${
-          isInCheckout ? "" : styles["hidden"]
-        }`}
-        onClick={() => removeShoppingCart(!isInCheckout)}
-      >
-        X
-      </span>
     </div>
   );
 };
